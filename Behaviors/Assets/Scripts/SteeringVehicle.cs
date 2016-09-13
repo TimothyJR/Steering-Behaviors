@@ -19,12 +19,6 @@ public class SteeringVehicle : MonoBehaviour {
     public GameObject Target { set { target = value; } }
     public Vector3 Velocity { get { return velocity; } }
 
-    private Vector3 avoid;
-    private Vector3 inbounds;
-    private Vector3 seek;
-    private Vector3 centroid;
-    private Vector3 direction;
-    private Vector3 separation;
 
 	// Use this for initialization
 	void Start () {
@@ -73,24 +67,6 @@ public class SteeringVehicle : MonoBehaviour {
         force = Vector3.ClampMagnitude(force, attributes.MaxForce);
         ApplyForce(force);
 
-        //for (int i = 0; i < manager.Obstacles.Count; i++)
-        //{
-        //    avoid = attributes.AvoidWeight * Steering.AvoidObstacle(manager.Obstacles[i], attributes.AvoidDistance, transform, attributes);
-        //}
-        //
-        //inbounds = attributes.InBoundsWeight * Steering.StayInBounds(50, Vector3.zero, transform.position, attributes.MaxSpeed, controller);
-        //
-        //if (target != null)
-        //{
-        //    seek = attributes.SeekWeight * Steering.Seek(target.transform.position, transform.position, attributes.MaxSpeed, controller);
-        //}
-        //
-        //centroid = attributes.CentroidWeight * Steering.Cohesion(manager.Centroid, transform.position, attributes.MaxSpeed, controller);
-        //direction = attributes.DirectionWeight * Steering.Alignment(manager.FlockDirection, transform.position, attributes.MaxSpeed, controller);
-        //separation = attributes.SeparationWeight * Steering.Separation(manager.Flockers, transform.position, attributes.MaxSpeed, controller);
-        //force += avoid + inbounds + seek + centroid + direction + separation;
-        //force = Vector3.ClampMagnitude(force, attributes.MaxForce);
-        //ApplyForce(force);
     }
 
     private void ApplyForce(Vector3 steeringForce)
