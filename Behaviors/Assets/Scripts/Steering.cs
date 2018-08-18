@@ -73,7 +73,7 @@ public class Steering {
         for(int i = 0; i < flockers.Count; i++)
         {
             distance = currentPosition - flockers[i].transform.position;
-            if(distance.magnitude < 10)
+            if(distance.magnitude < 5)
             {
                 changeInVelocity = currentPosition - flockers[i].transform.position;
                 changeInVelocity = changeInVelocity.normalized;
@@ -144,7 +144,7 @@ public class Steering {
         }
         float dot = Vector3.Dot(flockerTransform.forward, vectorToCenter);
         // Ignore if obstacle is behind
-        if (Vector3.Dot(flockerTransform.forward, vectorToCenter) < 0)
+        if (dot < 0)
         {
             return Vector3.zero;
         }
