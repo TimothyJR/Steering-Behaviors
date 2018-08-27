@@ -35,30 +35,36 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-# =========== #
-# ShaderForge #
-# =========== #
 
 # ============================ #
 # Large Assets/AssetStoreTools #
 # ============================ #
+
 *.fbx
 *.png
 *.bmp
 
+# =========== #
+# ShaderForge #
+# =========== #
+
 [Ss]haderForge/
-ShaderForge.meta
 
 # ============== #
 # CritiasFoliage #
 # ============== #
 
+[Cc]ritiasFoliage
 [Aa]ssetStoreTools/
-AssetStoreTools.meta
 
 # =============== #
 # StreamingAssets #
 # =============== #
 
 [Ss]treamingAssets
-SteamingAssets.meta
+
+# ===================== #
+# Post Processing Stack #
+# ===================== #
+
+[Pp]ostProcessing
