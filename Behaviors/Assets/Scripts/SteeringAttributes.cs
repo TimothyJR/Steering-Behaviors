@@ -2,21 +2,22 @@
 using System.Collections;
 
 [System.Serializable]
-public class SteeringAttributes {
+public struct SteeringAttributes {
  
-    [SerializeField] private float maxSpeed = 12.0f;
-    [SerializeField] private float maxForce = 12.0f;
-    [SerializeField] private float mass = 1.0f;
-    [SerializeField] private float radius = 1.0f;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float maxForce;
+    [SerializeField] private float mass;
+    [SerializeField] private float radius;
 
-    [SerializeField] private float seekWeight = 80.0f;
-    [SerializeField] private float inBoundsWeight = 20.0f;
-    [SerializeField] private float avoidWeight = 40.0f;
-    [SerializeField] private float avoidDistance = 14.0f;
+    [SerializeField] private float seekWeight;
+    [SerializeField] private float inBoundsWeight;
+    [SerializeField] private float avoidWeight;
+    [SerializeField] private float avoidDistance;
 
-    [SerializeField] private float directionWeight = 10.0f;
-    [SerializeField] private float separationWeight = 45.0f;
-    [SerializeField] private float centroidWeight = 5.0f;
+    [SerializeField] private float directionWeight;
+    [SerializeField] private float separationWeight;
+	[SerializeField] private float separationDistance;
+    [SerializeField] private float centroidWeight;
 
     #region Properties
 
@@ -32,6 +33,7 @@ public class SteeringAttributes {
 
     public float DirectionWeight { get { return directionWeight; } }
     public float SeparationWeight { get { return separationWeight; } }
+	public float SeparationDistance { get { return separationDistance; } }
     public float CentroidWeight { get { return centroidWeight; } }
 
 

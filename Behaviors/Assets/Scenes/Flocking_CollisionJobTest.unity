@@ -137,17 +137,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 180557581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23807e7a8fde0fd4193198e2ba89305d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f127e6719158594e8bbc8353bb86d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfFlockers: 600
+  flockerPrefab: {fileID: 1875889337452954, guid: b1596c8b1df4a614886c645a87591d6a,
+    type: 2}
   flockTargetPrefab: {fileID: 1726867921624648, guid: 60d3269217bf65a4587d10f3da003488,
     type: 2}
-  flockerPrefab: {fileID: 1875889337452954, guid: 2f90e55b96fbbc54fbe556a0903c8274,
-    type: 2}
-  centroidObject: {fileID: 0}
-  obstaclePrefabs:
-  - {fileID: 1000010804371298, guid: 5c910f52f707a4f4aa3a138073e9be39, type: 2}
-  steeringAttributes:
+  attributes:
     maxSpeed: 10
     maxForce: 12
     mass: 1
@@ -156,11 +154,12 @@ MonoBehaviour:
     inBoundsWeight: 1
     avoidWeight: 0.8
     avoidDistance: 0.12
-    directionWeight: 0.15
+    directionWeight: 0.1
     separationWeight: 0.3
+    separationDistance: 3.5
     centroidWeight: 0.1
-  obstacleScaleMax: 0.1
-  numberOfFlockers: 135
+  obstaclePrefabs: []
+  obstacleScaleMax: 2
   numberOfObstacles: 0
 --- !u!4 &180557583
 Transform:
@@ -185,7 +184,7 @@ GameObject:
   - component: {fileID: 724511540}
   - component: {fileID: 724511539}
   - component: {fileID: 724511538}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +209,7 @@ Terrain:
   m_GameObject: {fileID: 724511537}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: f38ab5f6a9466fb419277689c108f90f, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5

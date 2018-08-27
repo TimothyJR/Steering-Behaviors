@@ -163,18 +163,18 @@ MonoBehaviour:
     maxSpeed: 10
     maxForce: 12
     mass: 1
-    radius: 1
+    radius: 0.18
     seekWeight: 0.5
     inBoundsWeight: 1
     avoidWeight: 0.8
     avoidDistance: 0.12
-    directionWeight: 0.2
-    separationWeight: 0.4
-    centroidWeight: 0.15
+    directionWeight: 0.15
+    separationWeight: 0.3
+    separationDistance: 3.5
+    centroidWeight: 0.1
   obstacleScaleMax: 0.1
   numberOfFlockers: 135
   numberOfObstacles: 0
-  separationDistance: 3.5
 --- !u!1 &724511537
 GameObject:
   m_ObjectHideFlags: 0

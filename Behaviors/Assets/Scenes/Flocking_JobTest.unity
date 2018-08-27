@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.4262638, g: 0.8458403, b: 0.8773585, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 57d087d0008eb1343accce2880c67807, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.078183256, g: 0.10386924, b: 0.15248796, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -137,17 +137,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 180557581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23807e7a8fde0fd4193198e2ba89305d, type: 3}
+  m_Script: {fileID: 11500000, guid: acd3cdc59dc244f4ead04aa7ba503fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfFlockers: 400
+  flockerPrefab: {fileID: 1875889337452954, guid: 905748b57234728468312b9affe58d7d,
+    type: 2}
   flockTargetPrefab: {fileID: 1726867921624648, guid: 60d3269217bf65a4587d10f3da003488,
     type: 2}
-  flockerPrefab: {fileID: 1875889337452954, guid: 2f90e55b96fbbc54fbe556a0903c8274,
-    type: 2}
-  centroidObject: {fileID: 0}
-  obstaclePrefabs:
-  - {fileID: 1000010804371298, guid: 5c910f52f707a4f4aa3a138073e9be39, type: 2}
-  steeringAttributes:
+  attributes:
     maxSpeed: 10
     maxForce: 12
     mass: 1
@@ -156,11 +154,12 @@ MonoBehaviour:
     inBoundsWeight: 1
     avoidWeight: 0.8
     avoidDistance: 0.12
-    directionWeight: 0.15
+    directionWeight: 0.1
     separationWeight: 0.3
+    separationDistance: 0
     centroidWeight: 0.1
-  obstacleScaleMax: 0.1
-  numberOfFlockers: 135
+  obstaclePrefabs: []
+  obstacleScaleMax: 2
   numberOfObstacles: 0
 --- !u!4 &180557583
 Transform:
@@ -173,79 +172,188 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &724511537
+--- !u!1 &1198629068
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 724511540}
-  - component: {fileID: 724511539}
-  - component: {fileID: 724511538}
+  - component: {fileID: 1198629069}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: CRITIAS_BillboardHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!154 &724511538
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 724511537}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: f38ab5f6a9466fb419277689c108f90f, type: 2}
-  m_EnableTreeColliders: 0
---- !u!218 &724511539
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 724511537}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: f38ab5f6a9466fb419277689c108f90f, type: 2}
-  m_TreeDistance: 2000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_CastShadows: 1
-  m_DrawHeightmap: 1
-  m_DrawTreesAndFoliage: 1
-  m_ReflectionProbeUsage: 1
-  m_MaterialType: 0
-  m_LegacySpecular:
-    serializedVersion: 2
-    rgba: 4286545791
-  m_LegacyShininess: 0.078125
-  m_MaterialTemplate: {fileID: 0}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_ScaleInLightmap: 0.0512
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
---- !u!4 &724511540
+--- !u!4 &1198629069
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 724511537}
+  m_GameObject: {fileID: 1198629068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50, y: 0, z: -50}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1262420010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1262420014}
+  - component: {fileID: 1262420013}
+  - component: {fileID: 1262420012}
+  - component: {fileID: 1262420011}
+  m_Layer: 0
+  m_Name: Critias_Painter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1262420011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262420010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf660c2e9876e174d80768e5abff7c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Settings:
+    m_WatchedTransform: {fileID: 0}
+    m_CollisionDistance: 7
+    m_CollisionRefreshDistance: 5
+    m_UsedLayer: Default
+--- !u!114 &1262420012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262420010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd2ced9ab2c15349bb1bdf4d5916708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Settings:
+    m_DrawInstanced: 1
+    m_UseLightProbes: 1
+    m_AllowDrawInstancedIndirect: 1
+    m_GrassDensity: 1
+    m_WindTransform: {fileID: 0}
+    m_BendTransform: {fileID: 0}
+    m_UsedCameraCulling: {fileID: 0}
+    m_UsedCameraDrawing: {fileID: 0}
+    m_UsedLayer: Default
+    m_ApplyShadowPoppingCorrection: 1
+    m_ShadowPoppingCorrection: 40
+--- !u!114 &1262420013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262420010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616910f8ed50038449055c57928e8aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EditorFoldoutHelp: 1
+  m_EditorFoldoutBrush: 1
+  m_EditorFoldoutFoliageTypes: 1
+  m_EditorFoldoutFoliageTypeInfo: 1
+  m_EditorFoldoutAdvanced: 1
+  m_EditorPaintBegun: 0
+  m_FoliageRenderer: {fileID: 1262420012}
+  m_FoliageColliders: {fileID: 1262420011}
+  m_FoliageTypes:
+  - m_Hash: 1011177112
+    m_Name: GrassCross
+    m_RuntimeData:
+      m_LODDataTree: []
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: d6b4a511e3bbc524fbdcc16ca9d7eb9e, type: 2}
+        m_Mesh: {fileID: 4300000, guid: cd4f0a8ab6a1def47a5a2782d3f20168, type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0, y: 0.121535964, z: 0}
+      m_Extent: {x: 0.1686708, y: 0.1459099, z: 0.1686708}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 1581965132070738, guid: bb604dfede073864d89a515c2b4124f3, type: 2}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 1
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 1
+  m_PaintParameters:
+    m_BrushSize: 15.8
+    m_FoliageDensity: 400
+    m_SlopeFilter: 0
+    m_SlopeAngles: {x: 0, y: 180}
+    m_ScaleUniform: 1
+    m_ScaleUniformXYZ: {x: 0.81413245, y: 1.6232033}
+    m_ScaleX: {x: 1, y: 1}
+    m_ScaleY: {x: 1, y: 1}
+    m_ScaleZ: {x: 1, y: 1}
+    m_RotateYOnly: 1
+    m_RandomRotation: {x: 0, y: 360}
+    m_StaticOnly: 1
+  m_FoliageDataSaveName: FoliageData_Flocking_JobTest
+  m_DrawGridsMode: 0
+  m_DrawTreeShadows: 0
+  m_DrawTreeLastLOD: 1
+  m_DrawNeighboringCells: 1
+  m_DrawGrassCellsDistance: 50
+  m_BillboardsGenerateLODGroup: 1
+  m_BillboardLODGroupFade: 0.2
+  m_BillboardLODGroupWillCrossFade: 1
+  m_ShaderTreeMaster: {fileID: 4800000, guid: afeb08a05b4c36c4db1037ccfde8437f, type: 3}
+  m_ShaderGrass: {fileID: 4800000, guid: 5d9dc4938f3fc50498ebb3eeb2a88f94, type: 3}
+  m_ShaderNull: {fileID: 4800000, guid: abf183821512931479a885bfbc575486, type: 3}
+--- !u!4 &1262420014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262420010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.32, y: 0, z: -11.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1374382419
 GameObject:
@@ -263,7 +371,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &1374382420
 MeshCollider:
@@ -328,11 +436,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1374382419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000008910894, y: 0.12694341, z: 0.046430558}
-  m_LocalScale: {x: 500, y: 500, z: 500}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 10, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711932791
 GameObject:
@@ -438,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1711932791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.29, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,8 +577,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.7728729, g: 0.9811321, b: 0.9369315, a: 1}
+  m_Intensity: 0.43
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -504,7 +612,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1896805745}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 2.27, y: 4.18, z: -3.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

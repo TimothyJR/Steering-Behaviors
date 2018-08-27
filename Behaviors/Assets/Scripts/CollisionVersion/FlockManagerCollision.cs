@@ -19,7 +19,6 @@ public class FlockManagerCollision : MonoBehaviour {
     [SerializeField] private float obstacleScaleMax = 8.0f;
     [SerializeField] private float numberOfFlockers = 2.0f;
     [SerializeField] private float numberOfObstacles = 0.0f;
-	[SerializeField] private float separationDistance = 2.0f;
 
     #region Properties
 
@@ -36,7 +35,7 @@ public class FlockManagerCollision : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Vector3 position = new Vector3(Random.Range(-40, 40), Random.Range(2, 30), Random.Range(-40, 40));
+        Vector3 position = new Vector3(Random.Range(-80, 80), Random.Range(2, 60), Random.Range(-80, 80));
         flockTarget = (GameObject)Instantiate(flockTargetPrefab, position, Quaternion.identity);
 
         centroidObject = new GameObject();
@@ -53,7 +52,7 @@ public class FlockManagerCollision : MonoBehaviour {
 			steeringVehicle.Target = flockTarget;
 			steeringVehicle.Manager = this;
 			flockers[i].GetComponent<Animator>().SetFloat("offset", Random.Range(0.0f, 1.0f));
-			flockers[i].GetComponent<SphereCollider>().radius = separationDistance;
+			flockers[i].GetComponent<SphereCollider>().radius = steeringAttributes.SeparationDistance;
 
         }
 
@@ -79,10 +78,10 @@ public class FlockManagerCollision : MonoBehaviour {
         UpdateFlockInformation();
 
         // Move the target if the flock gets too close
-        if(Vector3.Distance(centroid, flockTarget.transform.position) < 8)
+        if(Vector3.Distance(centroid, flockTarget.transform.position) < (numberOfFlockers / 20) + 1)
         {
-            flockTarget.transform.position = new Vector3(Random.Range(-30, 30), Random.Range(2, 30), Random.Range(-30, 30));
-            flockTarget.transform.rotation = Quaternion.LookRotation(centroid - flockTarget.transform.position);
+            flockTarget.transform.position = new Vector3(Random.Range(-80, 80), Random.Range(2, 60), Random.Range(-80, 80));
+			flockTarget.transform.rotation = Quaternion.LookRotation(centroid - flockTarget.transform.position);
         }
 
         centroidObject.transform.position = centroid;
@@ -95,14 +94,11 @@ public class FlockManagerCollision : MonoBehaviour {
     private void UpdateFlockInformation()
     {
         Vector3 positionSum = Vector3.zero;
-        SteeringVehicleCollision steeringVehicle;
 
         for(int i = 0; i < numberOfFlockers; i++)
         {
             positionSum += flockers[i].transform.position;
-
-            steeringVehicle = flockers[i].GetComponent<SteeringVehicleCollision>();
-            flockDirection += steeringVehicle.Velocity.normalized;
+            flockDirection += flockers[i].GetComponent<SteeringVehicleCollision>().Velocity.normalized;
         }
 
         centroid = positionSum / numberOfFlockers;
