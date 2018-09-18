@@ -39,7 +39,7 @@ public class FlockManagerJob : MonoBehaviour
 
 	private void Start()
 	{
-		Vector3 position = new Vector3(Random.Range(-80, 80), Random.Range(2, 60), Random.Range(-80, 80));
+		Vector3 position = new Vector3(Random.Range(-80, 80), Random.Range(2, 20), Random.Range(-80, 80));
 		flockTarget = (GameObject)Instantiate(flockTargetPrefab, position, Quaternion.identity);
 		centroidObject = new GameObject();
 
@@ -107,7 +107,7 @@ public class FlockManagerJob : MonoBehaviour
 
 		if (Vector3.Distance(centroid, flockTarget.transform.position) < (numberOfFlockers / 20) + 1)
 		{
-			flockTarget.transform.position = new Vector3(Random.Range(-80, 80), Random.Range(2, 60), Random.Range(-80, 80));
+			flockTarget.transform.position = new Vector3(Random.Range(-80, 80), Random.Range(2, 20), Random.Range(-80, 80));
 			flockTarget.transform.rotation = Quaternion.LookRotation(centroid - flockTarget.transform.position);
 		}
 
@@ -191,7 +191,7 @@ public class FlockManagerJob : MonoBehaviour
 
 			force += attributes.DirectionWeight * Steering.AlignmentJob(direction, positions[index], attributes.MaxSpeed, velocities[index]);
 
-			force += attributes.SeparationWeight * Steering.SeparationJob(positions, positions[index], attributes.MaxSpeed, velocities[index]);
+			force += attributes.SeparationWeight * Steering.SeparationJob(positions, positions[index], attributes.MaxSpeed, velocities[index], attributes.SeparationDistance);
 
 			force = Vector3.ClampMagnitude(force, attributes.MaxForce);
 

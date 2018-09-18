@@ -36,6 +36,5 @@ public struct SteeringAttributes {
 	public float SeparationDistance { get { return separationDistance; } }
     public float CentroidWeight { get { return centroidWeight; } }
 
-
     #endregion
 }

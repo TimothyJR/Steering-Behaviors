@@ -10,7 +10,7 @@ public class CameraSmoothFollow : MonoBehaviour {
     [SerializeField] private float heightDamping = 4.0f;
     [SerializeField] private float positionDamping = 4.0f;
     [SerializeField] private float rotationDamping = 4.0f;
-
+	[SerializeField] private float maxHeight = 15.0f;
     public Transform Target {  set { target = value; } }
 
 	void FixedUpdate()
@@ -22,11 +22,19 @@ public class CameraSmoothFollow : MonoBehaviour {
         }
 
         float wantedHeight = target.position.y + height;
+		if(wantedHeight < 1.0f)
+		{
+			wantedHeight = 1.0f;
+		}
+		else if(wantedHeight > maxHeight)
+		{
+			wantedHeight = maxHeight;
+		}
         float currentHeight = transform.position.y;
 
         currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
-        Vector3 wantedPosition = target.position - target.forward * distance;
+        Vector3 wantedPosition = target.position - target.right * distance;
         transform.position = Vector3.Lerp(transform.position, wantedPosition, positionDamping * Time.deltaTime);
 
         transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);

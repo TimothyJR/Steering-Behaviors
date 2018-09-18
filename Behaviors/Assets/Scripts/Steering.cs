@@ -153,7 +153,7 @@ public class Steering {
 	/// <param name="maxSpeed"></param>
 	/// <param name="velocity"></param>
 	/// <returns></returns>
-	public static Vector3 SeparationJob(NativeArray<Vector3> flockers, Vector3 currentPosition, float maxSpeed, Vector3 velocity)
+	public static Vector3 SeparationJob(NativeArray<Vector3> flockers, Vector3 currentPosition, float maxSpeed, Vector3 velocity, float avoidDistance)
 	{
 		Vector3 changeInVelocity = Vector3.zero;
 		Vector3 distance = Vector3.zero;
@@ -162,7 +162,7 @@ public class Steering {
 		for (int i = 0; i < flockers.Length - 1; i++)
 		{
 			distance = currentPosition - flockers[i];
-			if (distance.magnitude < 3.5)
+			if (distance.magnitude < avoidDistance)
 			{
 				changeInVelocity = currentPosition - flockers[i];
 				changeInVelocity = changeInVelocity.normalized;
