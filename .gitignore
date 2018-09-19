@@ -45,26 +45,22 @@ sysinfo.txt
 *.bmp
 
 # =========== #
-# ShaderForge #
+# Assets 	  #
 # =========== #
 
 [Ss]haderForge/
-
-# ============== #
-# CritiasFoliage #
-# ============== #
-
 [Cc]ritiasFoliage
 [Aa]ssetStoreTools/
-
-# =============== #
-# StreamingAssets #
-# =============== #
-
 [Ss]treamingAssets
-
-# ===================== #
-# Post Processing Stack #
-# ===================== #
-
 [Pp]ostProcessing
+3DGameKit/
+huehue/
+[Gg]izmos/
+
+# ======================= #
+# Include showcase images #
+# ======================= #
+!/Images/**
+
+
+
